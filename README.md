@@ -25,16 +25,16 @@ TODO
 Then run the command as shown below
 
 ```
-python -m seqgen.train --train_csv train_split.p --val_csv val_split.p
+python -m seqgen.train --train_data train_split.p --val_data val_split.p
 ```
 
 ## To generate sequences
 
 To generate sequences run command below:
 
-Note: predictions are run on GPU.
+Note: generation is run on GPU.
 
 ```
-python -m seqgen.generate --model models/TODO --fasta example/to_predict.fasta
+python -m seqgen.generate --model models/model.pt --output results/sample.fasta
 
 ```
