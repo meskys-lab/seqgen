@@ -23,7 +23,7 @@ conda env create -f environment.yml
 In order to prepare data for training provide csv file that contains sequence id and sequence itself and then run
 
 ```
-python -m seqgen.convert --input_file example/input.csv --output_path example/data.p
+python -m seqgen.convert --input_file examples/input.csv --output_path examples/data.p
 ```
 
 
@@ -32,7 +32,7 @@ python -m seqgen.convert --input_file example/input.csv --output_path example/da
 Then run the command as shown below
 
 ```
-python -m seqgen.train --train_data example/data.p --val_data example/data.p
+python -m seqgen.train --train_data examples/data.p --val_data examples/data.p
 ```
 
 ## To generate sequences
