@@ -15,7 +15,8 @@ def parse_train_args():
     parser.add_argument('--model', type=str, default="esm2_t6_8M_UR50D", help='ESM model name')
     parser.add_argument('--esm_model_hub', type=str, default='/mnt/shared/models/esm/weights/hub',
                         help='Path where ESM models are downloaded')
-    parser.add_argument('--input_file', required=True, type=str, help='Full path to file which contains sequences in csv format (id, sequence)')
+    parser.add_argument('--input_file', required=True, type=str, 
+                        help='Full path to file which contains sequences in csv format (id, sequence)')
     parser.add_argument('--output_path', type=str, default="example/dataset.p",
                         help='Full path where to store representations of sequences in fasta file')
     args = parser.parse_args()
