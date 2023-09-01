@@ -43,5 +43,4 @@ Note: generation is run on GPU.
 
 ```
 python -m seqgen.generate --model models/model.pt --output results/sample.fasta
-
 ```
