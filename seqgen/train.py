@@ -12,6 +12,7 @@ from seqgen.learner import Learner
 from seqgen.model.diffusion import Diffusion
 from seqgen.model.modules.aa_head import AaHead
 from seqgen.model.modules.unet import Unet
+from seqgen.model.utils import get_trainable_parameters
 
 
 def parse_train_args():
@@ -104,6 +105,7 @@ def get_diff_model(args):
         timesteps=args.timesteps,
     ).cuda()
 
+    logging.info(f'Model has {get_trainable_parameters(denoiser)} trainable parameters')
     return diff_model
 
 
