@@ -25,7 +25,7 @@ def parse_fasta(path: Union[Path, str]) -> pd.DataFrame:
 class Converter():
 
     def __init__(self, name:str) -> None:
-        self.backbone = get_backbone(name, use_lora=False).eval().cuda()
+        self.backbone = get_backbone(name).eval().cuda()
         self.collate_fn = BatchConverter(Alphabet.from_architecture("ESM-1b"))
 
 
@@ -37,18 +37,3 @@ class Converter():
             rep = output['representations'][self.backbone   .num_layers].detach().cpu().numpy()
         return item[0], item[1], item[2].numpy().astype("uint8").squeeze(), rep.astype("float16").squeeze()
         
-            
-
-def dump_dataset(df: pd.DataFrame, path:str):
-    c = Converter("esm2_t6_8M_UR50D")
-    dataset = get_train_dataset(df)
-
-    data = []
-    for b in dataset:
-        item = c(b)
-        data.append(item)
-
-
-    with open(path, 'wb') as f:
-        pickle.dump(data, f)
-

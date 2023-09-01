@@ -18,14 +18,21 @@ with any modern Nvidia GPU (tested on RTX 2080). To create conda environment run
 conda env create -f environment.yml
 ```
 
-## Train model
+## To prepare data for training
 
-TODO
+In order to prepare data for training provide csv file that contains sequence id and sequence itself and then run
+
+```
+python -m seqgen.convert --input_file example/input.csv --output_path example/data.p
+```
+
+
+## Train model
 
 Then run the command as shown below
 
 ```
-python -m seqgen.train --train_data train_split.p --val_data val_split.p
+python -m seqgen.train --train_data example/data.p --val_data example/data.p
 ```
 
 ## To generate sequences
